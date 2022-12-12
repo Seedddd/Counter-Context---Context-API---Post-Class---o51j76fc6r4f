@@ -1,15 +1,22 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
-const counterContext = createContext();
+
+
+
+
+const counterContext = createContext()
+
 
 const CounterStateContext = (props) => {
-  return (
-    <div id="counter-context">
-      <counterContext.Provider value={{ count: 0, onclick }}>
-        {props.children}
-      </counterContext.Provider>
-    </div>
-  );
-};
+const[count,setCount]=useState(0);
+    return (
+        <div id="counter-context">
+            <counterContext.Provider value={{ count, setCount }}>
+                {props.children}
+            </counterContext.Provider >
+        </div>
 
-export { counterContext, CounterStateContext };
+    )
+}
+
+export { counterContext, CounterStateContext }
